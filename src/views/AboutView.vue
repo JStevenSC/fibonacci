@@ -8,19 +8,12 @@
       </b-col>
       
       <b-col md="5" class=" d-flex text-center  flex-column">
-
        
         <h2 class="text-center mb-3">Serie de fibonacci usando Hora actual</h2>
-            <!-- <ul class="list-group">
-              <li class="list-group-item" v-show="fecha"><strong>Fecha:</strong> {{ fecha }}</li>
-              <li class="list-group-item" v-show="time"><strong>Time:</strong> {{ time }}</li>
-              <li class="list-group-item" v-show="fulldatetime"><strong>Full Date:</strong> {{ fulldatetime }}</li>
-            </ul>
-            -->
+        
             <button  @click="semillas()">Calcular</button>
             
             <h1> {{ mostrar}}</h1>
-          
             <h4> {{ 'semilla1=' }} {{ part1}}</h4>
             <h4> {{ 'semilla2=' }} {{ part2}}</h4>
             <h4> {{ 'Repetir=' }} {{ repetir}}</h4>
@@ -28,16 +21,11 @@
 
       </b-col>
     </b-row>
-    
-
-    <!-- <p>{{ $store.state.firstName }} {{ $store.state.lastName }}</p> -->
   </div>
 </template>
 
 
 <script>
-
-
 export default {
   name: 'HomeView',
   data(){
@@ -65,7 +53,6 @@ export default {
     },
     mostar(){
       this.mostrar=new Date().toLocaleTimeString();
-
     },
     printDate() {
       return new Date().toLocaleDateString();      
@@ -101,15 +88,13 @@ export default {
       for (var i = 2; i < (this.repetir+1); i++) {
         this.fibonacci[i] = this.fibonacci[i - 2] + this.fibonacci[i - 1];
       }
-      console.log(this.fibonacci)
-      
+      console.log(this.fibonacci)  
  
     }
   },
         mounted: function () {
 
           this.reloj()
-
           this.fecha = this.printDate();
           this.time = this.printTime();
           this.timestamp = this.printTimestamp();
