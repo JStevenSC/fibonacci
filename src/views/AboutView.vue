@@ -1,21 +1,34 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <h2 class="text-center mb-3">Vue Get Full Date and Time Example</h2>
-        <ul class="list-group">
-          <li class="list-group-item" v-show="fecha"><strong>Fecha:</strong> {{ fecha }}</li>
-          <li class="list-group-item" v-show="time"><strong>Time:</strong> {{ time }}</li>
-          <li class="list-group-item" v-show="fulldatetime"><strong>Full Date:</strong> {{ fulldatetime }}</li>
-        </ul>
-        
-        <button @click="semillas()">segundos</button>
-        
-        <h1> {{ mostrar}}</h1>
+
+    <b-row class=" d-flex   flex-row">
+
+      <b-col md="7" class=" d-flex text-center  flex-column">
+        <img alt="logoe" src="../assets/logo.png" class="img-fluid" >
+      </b-col>
       
-        <h4> {{ 'semilla1=' }} {{ part1}}</h4>
-        <h4> {{ 'semilla2=' }} {{ part2}}</h4>
-        <h4> {{ 'Repetir=' }} {{ repetir}}</h4>
-        <h4> {{ fibonacci }} </h4>
+      <b-col md="5" class=" d-flex text-center  flex-column">
+
+       
+        <h2 class="text-center mb-3">Serie de fibonacci usando Hora actual</h2>
+            <!-- <ul class="list-group">
+              <li class="list-group-item" v-show="fecha"><strong>Fecha:</strong> {{ fecha }}</li>
+              <li class="list-group-item" v-show="time"><strong>Time:</strong> {{ time }}</li>
+              <li class="list-group-item" v-show="fulldatetime"><strong>Full Date:</strong> {{ fulldatetime }}</li>
+            </ul>
+            -->
+            <button  @click="semillas()">Calcular</button>
+            
+            <h1> {{ mostrar}}</h1>
+          
+            <h4> {{ 'semilla1=' }} {{ part1}}</h4>
+            <h4> {{ 'semilla2=' }} {{ part2}}</h4>
+            <h4> {{ 'Repetir=' }} {{ repetir}}</h4>
+            <h4> {{ fibonacci }} </h4>
+
+      </b-col>
+    </b-row>
+    
 
     <!-- <p>{{ $store.state.firstName }} {{ $store.state.lastName }}</p> -->
   </div>
@@ -23,8 +36,7 @@
 
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+
 
 export default {
   name: 'HomeView',
@@ -43,6 +55,7 @@ export default {
       part2:'',
       repetir:'',
       fibonacci: [],
+      fibonaccidesc: [],
     }
   },
     methods: {
@@ -82,13 +95,15 @@ export default {
       this.part2=this.segundos1 % 10,
       this.repetir= new Date().getSeconds();
       this.fibonacci=[]
+      this.fibonaccidesc=[]
       this.fibonacci[0] = this.part1
       this.fibonacci[1] = this.part2
       for (var i = 2; i < (this.repetir+1); i++) {
         this.fibonacci[i] = this.fibonacci[i - 2] + this.fibonacci[i - 1];
       }
       console.log(this.fibonacci)
-      // this.fibonacci.sort((unNumero, otroNumero) => otroNumero - unNumero);
+      
+ 
     }
   },
         mounted: function () {
@@ -104,8 +119,16 @@ export default {
         },
   
 }
-  // components: {
-  //   HelloWorld
-  // }
 
 </script>
+
+<style>
+
+.about{
+  background-image: url("../assets/fondo3.png");  
+}
+.texto{
+  text-align: justify;
+}
+
+</style>
